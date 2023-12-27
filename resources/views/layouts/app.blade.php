@@ -45,8 +45,8 @@
                             <!-- ***** Menu Start ***** -->
                             <ul class="nav">
                                 <li><a href="{{route('home')}}" class="active">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="deals.html">Deals</a></li>
+                                {{-- <li><a href="about.html">About</a></li> --}}
+                                <li><a href="{{route('traveling.deals')}}">Deals</a></li>
 
                                 @guest
                                 @if (Route::has('login'))
@@ -68,6 +68,9 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item text-black" href="{{ route('users.bookings') }}">
+                                            My Bookings
+                                        </a>
                                         <a class="dropdown-item text-black" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -91,7 +94,7 @@
             </div>
         </header>
 
-        <main class="py-4">
+        <main >
             @yield('content')
         </main>
     </div>
@@ -101,9 +104,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright © 2036 <a href="#"> Travel</a> Company. All rights reserved.
-                        <br>Design: <a href="https://templatemo.com" target="_blank"
-                            title="free CSS templates">TemplateMo</a> Distribution: <a
-                            href="https://themewagon.com target=" _blank">ThemeWagon</a>
                     </p>
                 </div>
             </div>

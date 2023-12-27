@@ -2258,7 +2258,8 @@ Reservation Page Style
     color: #aaa;
 }
 
-.reservation-form #reservation-form button {
+.reservation-form #reservation-form button,
+#pay-button {
     font-size: 14px;
     color: #fff;
     background-color: #22b3c1;
