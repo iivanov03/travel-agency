@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $countries = Country::select()->orderBy('id', 'asc')->get();
+        $countries = Country::select()->orderBy('id', 'asc')->take(4)->get();
 
         return view('home', compact('countries'));
     }

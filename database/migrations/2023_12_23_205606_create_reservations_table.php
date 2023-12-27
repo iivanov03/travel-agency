@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('check_in_date')->nullable();
             $table->string('destination')->nullable();
             $table->string('price')->nullable();
-            $table->string('status')->default('In progress');
+            $table->enum('status', ['pending', 'confirmed', 'cancelled', 'completed'])->default('pending');
             $table->timestamps();
         });
     }

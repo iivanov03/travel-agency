@@ -46,4 +46,20 @@ Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class,
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/index', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
     Route::get('/all-admins', [App\Http\Controllers\Admins\AdminsController::class, 'allAdmins'])->name('admins.all.admins');
+    Route::get('/create-admins', [App\Http\Controllers\Admins\AdminsController::class, 'createAdmins'])->name('admins.create');
+    Route::post('/create-admins', [App\Http\Controllers\Admins\AdminsController::class, 'storeAdmins'])->name('admins.store');
+
+    Route::get('/all-countries', [App\Http\Controllers\Admins\AdminsController::class, 'allCountries'])->name('all.countries');
+    Route::get('/create-countries', [App\Http\Controllers\Admins\AdminsController::class, 'createCountry'])->name('create.countries');
+    Route::post('/create-countries', [App\Http\Controllers\Admins\AdminsController::class, 'storeCountry'])->name('store.countries');
+    Route::get('/delete-countries/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteCountry'])->name('delete.countries');
+
+    Route::get('/all-cities', [App\Http\Controllers\Admins\AdminsController::class, 'allCities'])->name('all.cities');
+    Route::get('/create-cities', [App\Http\Controllers\Admins\AdminsController::class, 'createCity'])->name('create.cities');
+    Route::post('/create-cities', [App\Http\Controllers\Admins\AdminsController::class, 'storeCity'])->name('store.cities');
+    Route::get('/delete-cities/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteCity'])->name('delete.cities');
+
+    Route::get('/all-bookings', [App\Http\Controllers\Admins\AdminsController::class, 'allBookings'])->name('all.bookings');
+    Route::get('/edit-booking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'editBooking'])->name('edit.bookings');
+    Route::post('/update-booking/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateBooking'])->name('update.bookings');
 });
