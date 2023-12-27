@@ -218,4 +218,18 @@ class AdminsController extends Controller
 
         return view('admins.editBooking', compact('booking'));
     }
+
+    public function deleteBooking($id)
+    {
+        $deleteBooking = Reservation::find($id);
+
+
+        $deleteBooking->delete();
+        if ($deleteBooking) {
+            return Redirect::route('all.bookings')->with(['success' => 'Booking deleted successfully']);
+        }
+
+
+        return view('admins.allBookings');
+    }
 }
